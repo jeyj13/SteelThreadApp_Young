@@ -36,9 +36,8 @@ namespace SteelThreadApp_Young
                 editTextString = txt1.Text;
                 var url = string.Format("https://jacobproject.azurewebsites.net/api/HttpTriggerCSharp1?code=CF5a7FaDJ/SkohQ9H8q0gyZg4zsMIzya7VvxKliNW5nxITavR25TUA==");
                 var content = new StringContent("{passedString:'" + editTextString + "'}", Encoding.UTF8, "application/json");
-                client.PostAsync(url, content).Result.EnsureSuccessStatusCode();
+                client.PostAsync(new Uri(url), content).Result.EnsureSuccessStatusCode();
             }
         }
     }
-    }
-
+}
